@@ -7,8 +7,8 @@ flag = True
 while flag:
     ans = input("Inserisci indirizzo IP, oppure 0 per uscire: ")
     if ans != "0":
-        website = website.replace("79.55.243.41", ans)
-        webbrowser.open(website)
+        website1 = website.replace("79.55.243.41", ans)
+        webbrowser.open(website1)
     elif ans == "0":
         flag = False
         sys.exit()
