@@ -2,7 +2,7 @@ import keyboard
 import os
 
 print("***********")
-print("*Program*")
+print("**Program**")
 print("***********")
 
 flag = True
