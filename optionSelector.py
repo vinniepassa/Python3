@@ -5,7 +5,6 @@ print("***********")
 print("**Program**")
 print("***********")
 
-flag = True
 A = ["A", ""]
 B = ["B", ""]
 C = ["C", ""]
