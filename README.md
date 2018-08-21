@@ -1,3 +1,3 @@
-# Python3.6
+# Python3
 
-Simple Python 3.6 programs/exercises
+Simple Python 3 programs/exercises
