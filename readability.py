@@ -68,61 +68,76 @@ def preprocess(text):
   return(text, sentence_counter, letter_counter, word_counter)
 
 def main():
-  filename = input("File name: ")
-  language = input("Language: ")
-  print()
-  tic = time.process_time()
-  with open(filename, 'r') as file: #includere encoding='utf8' dopo 'r' se non dovesse funzionare alla prima
-    text = file.read()
-  text = list(text)
+  flag = True
+  while flag:
+    filename = input("Nome file: ")
+    language = input("Lingua: ")
+    print()
+    tic = time.process_time()
+    with open(filename, 'r') as file: #includere encoding='utf8' dopo 'r' se non dovesse funzionare alla prima
+      text = file.read()
+    text = list(text)
 
-  newt, s, l, w = preprocess(text)
+    newt, s, l, w = preprocess(text)
 
-  f, u, a = basic_vocab(newt)
+    f, u, a = basic_vocab(newt)
 
-  if language == "it_IT":
-    sy = syllables(newt, language)
-    
-    gulpease_index = 89+(((300*s)-(10*l))/w)
+    if language == "it_IT":
+      sy = syllables(newt, language)
+      
+      gulpease_index = 89+(((300*s)-(10*l))/w)
 
-    if gulpease_index < 80 and gulpease_index >= 60:
-      print("Indice GULPEASE:",gulpease_index,'difficile per licenza elementare')
-    elif gulpease_index < 60 and gulpease_index >= 40:
-      print("Indice GULPEASE:",gulpease_index,'difficile per licenza media')
-    elif gulpease_index < 40:
-      print("Indice GULPEASE:",gulpease_index,'difficile per licenza superiore')
-    else:
-      print("Indice GULPEASE:",gulpease_index)
+      if gulpease_index < 80 and gulpease_index >= 60:
+        print("Indice GULPEASE:",gulpease_index,'difficile per licenza elementare')
+      elif gulpease_index < 60 and gulpease_index >= 40:
+        print("Indice GULPEASE:",gulpease_index,'difficile per licenza media')
+      elif gulpease_index < 40:
+        print("Indice GULPEASE:",gulpease_index,'difficile per licenza superiore')
+      else:
+        print("Indice GULPEASE:",gulpease_index)
 
-    flesch_formula = 206 - (0.65*sy) - (w/s)
+      flesch_formula = 206 - (0.65*sy) - (w/s)
 
-    if flesch_formula >= 90:
-      print("Formula di Flesch:",flesch_formula,'(molto facile - fino a licenza elementare)')
-    elif flesch_formula >= 80 and flesch_formula < 90:
-      print("Formula di Flesch:",flesch_formula,'(facile - da licenza elementare a prima media)')
-    elif flesch_formula >= 70 and flesch_formula < 80:
-      print("Formula di Flesch:",flesch_formula,'(abbastanza facile - seconda media)')
-    elif flesch_formula >= 60 and flesch_formula < 70:
-      print("Formula di Flesch:",flesch_formula,'(medio - licenza media)')
-    elif flesch_formula >= 50 and flesch_formula < 60:
-      print("Formula di Flesch:",flesch_formula,'(abbastanza difficile - da licenza media a licenza superiore)')
-    elif flesch_formula >= 30 and flesch_formula < 50:
-      print("Formula di Flesch:",flesch_formula,'(difficile - università ma non laurea)')
-    elif flesch_formula < 30:
-      print("Formula di Flesch:",flesch_formula,'(molto difficile - laurea)')
+      if flesch_formula >= 90:
+        print("Formula di Flesch:",flesch_formula,'(molto facile - fino a licenza elementare)')
+      elif flesch_formula >= 80 and flesch_formula < 90:
+        print("Formula di Flesch:",flesch_formula,'(facile - da licenza elementare a prima media)')
+      elif flesch_formula >= 70 and flesch_formula < 80:
+        print("Formula di Flesch:",flesch_formula,'(abbastanza facile - seconda media)')
+      elif flesch_formula >= 60 and flesch_formula < 70:
+        print("Formula di Flesch:",flesch_formula,'(medio - licenza media)')
+      elif flesch_formula >= 50 and flesch_formula < 60:
+        print("Formula di Flesch:",flesch_formula,'(abbastanza difficile - da licenza media a licenza superiore)')
+      elif flesch_formula >= 30 and flesch_formula < 50:
+        print("Formula di Flesch:",flesch_formula,'(difficile - università ma non laurea)')
+      elif flesch_formula < 30:
+        print("Formula di Flesch:",flesch_formula,'(molto difficile - laurea)')
 
-  print()
-  print("Frasi:",s)
-  print("Parole:",w)
-  print("Sillabe:",sy)
-  print("Lettere:",l)
-  print()
-  print("Fondamentali (%):",((f*100)/w))
-  print("Alto uso (%):",((u*100)/w))
-  print("Alta disponibilità (%):",((a*100)/w))
-  print()
+    print()
+    print("Frasi:",s)
+    print("Parole:",w)
+    print("Sillabe:",sy)
+    print("Lettere:",l)
+    print()
+    print("Fondamentali (%):",((f*100)/w))
+    print("Alto uso (%):",((u*100)/w))
+    print("Alta disponibilità (%):",((a*100)/w))
+    print()
 
-  toc = time.process_time()
-  print("Durata processo:",toc-tic)
+    toc = time.process_time()
+    print("Durata processo:",toc-tic)
+    print()
+    flag2 = True
+    while flag2:
+      print("Nuova analisi? [Y][N]")
+      ans = input()
+      ans = ans.upper()
+      print()
+      if ans == 'Y':
+        flag2 = False
+        continue
+      elif ans == 'N':
+        flag = False
+        break
 
 main()
