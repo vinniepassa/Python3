@@ -2,6 +2,25 @@ import pyphen
 import string
 import time
 
+def basic_vocab(newt):
+  fundamental = 0
+  high_use = 0
+  high_avail = 0
+
+  with open('fondamentali.txt', 'r') as f1, open('alto_uso.txt', 'r') as f2, open('alta_disponibilità.txt', 'r') as f3:
+    strings1 = f1.read()
+    strings2 = f2.read()
+    strings3 = f3.read()
+    for i in newt:
+      if i in strings1 and i not in strings2 and i not in strings3:
+        fundamental += 1
+      elif i not in strings1 and i in strings2 and i not in strings3:
+        high_use += 1
+      elif i not in strings1 and i not in strings2 and i in strings3:
+        high_avail += 1
+  
+  return(fundamental, high_use, high_avail)
+  
 def syllables(text, language):
   syllable_counter = 0
   poly_counter = 0
@@ -59,6 +78,8 @@ def main():
 
   newt, s, l, w = preprocess(text)
 
+  f, u, a = basic_vocab(newt)
+
   if language == "it_IT":
     sy = syllables(newt, language)
     
@@ -95,6 +116,10 @@ def main():
   print("Parole:",w)
   print("Sillabe:",sy)
   print("Lettere:",l)
+  print()
+  print("Fondamentali (%):",((f*100)/w))
+  print("Alto uso (%):",((u*100)/w))
+  print("Alta disponibilità (%):",((a*100)/w))
   print()
 
   toc = time.process_time()
