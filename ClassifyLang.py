@@ -132,4 +132,6 @@ def main():
                 flag = False
         except(SyntaxError, TypeError, ValueError, NameError, ZeroDivisionError):
             print("Invalid input! Try again...")
-main()
+          
+if __name__ == '__main__':
+    main()
