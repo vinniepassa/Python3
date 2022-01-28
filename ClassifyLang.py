@@ -70,9 +70,9 @@ def detectLang(s):
         print(newLangNames[i], newLangDict[i])
     print()
     time.sleep(5)
-    finalDict = dict(zip(newLangNames, newLangDict))
-    finalDict = str(finalDict)
-    return(finalDict)
+    #finalDict = dict(zip(newLangNames, newLangDict))
+    #finalDict = str(finalDict)
+    #return(finalDict)
 
 def main():
     flag = True
