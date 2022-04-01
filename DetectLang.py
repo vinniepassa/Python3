@@ -55,19 +55,19 @@ def detectLang(s):
     s = s.lower()
     s = ''.join([i for i in s if i not in string.punctuation and i not in string.whitespace and i not in string.digits])
     #Count every instance of a letter in the input string, then estimate frequency
-    for i in baseChars:
-        j = s.count(i)
-        freqText.append((j*100)/len(s))
+    for instance in baseChars:
+        inst = s.count(instance)
+        freqText.append((inst*100)/len(s))
     #Calculate cosine similarity between input string's and each language's letter frequency 
-    for i in range(len(freqList)):
-        langDict[langNames[i]] = 1-spatial.distance.cosine(freqList[i], freqText)
+    for elem in range(len(freqList)):
+        langDict[langNames[elem]] = 1-spatial.distance.cosine(freqList[elem], freqText)
 
     newLangDict = sorted(langDict.values(), reverse = True)
     newLangNames = sorted(langDict, key=langDict.get, reverse = True)
 
     print("Cosine similarity (descending order):")
-    for i in range(len(freqList)):
-        print(newLangNames[i], newLangDict[i])
+    for item in range(len(freqList)):
+        print(newLangNames[item], newLangDict[item])
     print()
     time.sleep(5)
     #finalDict = dict(zip(newLangNames, newLangDict))
