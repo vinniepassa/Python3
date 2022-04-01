@@ -1,14 +1,14 @@
 class Student():
-    def __init__(self, name, surname, institute, grade):
+    def __init__(self, name, surname, institution, grade):
         self.n = name
         self.s = surname
-        self.i = institute
+        self.i = institution
         self.m = grade
 		
 def printData(a):
     x = print("Name is", a.n)
     y = print("Surname is", a.s)
-    z = print("Institute is", a.i)
+    z = print("Institution is", a.i)
     return(x, y, z)
 
 
@@ -29,6 +29,6 @@ def avg(a):
 
 list1 = []
 print("This program outputs student data for one student and the average of their grades.\n")
-a = Student(input("Name: "), input("Surname: "), input("Institute: "), multipleGrades(list1))
+a = Student(input("Name: "), input("Surname: "), input("Institution: "), multipleGrades(list1))
 printData(a)
 avg(a)
