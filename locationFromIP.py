@@ -1,6 +1,7 @@
-import webbrowser
-import sys
 import socket
+import sys
+import time
+import webbrowser
 
 website = "https://www.iplocation.net/search?cx=partner-pub-1026064395378929%3A2796854705&cof=FORID%3A10&ie=UTF-8&q=79.55.243.41&sa=Search&siteurl=www.iplocation.net%2F&ref=www.iplocation.net%2F&ss=40j1600j2"
 flag1, flag2 = True, True
@@ -17,8 +18,11 @@ while flag2:
                 flag1, flag2 = False, False
                 sys.exit()
     elif on_or_off == 2:
+        print("Offline lookup not implemented yet!")
+        time.sleep(2)
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
-        print(s.getsockname()[0])
+        print("Your IP address is: ", s.getsockname()[0])
         s.close()
+        time.sleep(2)
         flag2 = False
