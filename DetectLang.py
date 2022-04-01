@@ -77,13 +77,13 @@ def detectLang(s):
 def main():
     flag = True
 
-    print("**************")
-    print("*ClassifyLang*")
-    print("**(ver. 1.0)**")
-    print("**************")
+    print("************")
+    print("*DetectLang*")
+    print("*(ver. 1.0)*")
+    print("************")
     time.sleep(2)
     os.system('cls')
-    print("Can recognize the following languages: English (EN), French (FR), German (DE), Spanish (ES), Portuguese (PT), Italian (IT), Turkish (TK), Swedish (SW), Polish (PL), Dutch (NL), Danish (DK), Icelandic (IS), Finnish (FI), Czech (CZ), Norwegian (NO), Estonian (ET), Irish (GA), Galician (GL)")
+    print("Can detect the following languages: English (EN), French (FR), German (DE), Spanish (ES), Portuguese (PT), Italian (IT), Turkish (TK), Swedish (SW), Polish (PL), Dutch (NL), Danish (DK), Icelandic (IS), Finnish (FI), Czech (CZ), Norwegian (NO), Estonian (ET), Irish (GA), Galician (GL)")
     time.sleep(5)
 
     while flag:
