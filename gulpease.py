@@ -5,21 +5,21 @@ def gulpeaseIndex(s, l, w):
     print("Indice GULPEASE:", formula)
 
 def preprocess(text):
-    sentence_counter = 0
-    letter_counter = 0
-    word_counter = 0
+    sentenceCounter = 0
+    letterCounter = 0
+    wordCounter = 0
     
     if "." not in text:
-        sentence_counter = 1
+        sentenceCounter = 1
     else:
         for i in text:
             if i == ".":
-                sentence_counter += 1
+                sentenceCounter += 1
                 text.remove(i)
 
     for j in text:
         if j in string.ascii_letters:
-            letter_counter += 1
+            letterCounter += 1
 
     for k in text:
         if k in string.punctuation or k in string.digits:
@@ -29,7 +29,7 @@ def preprocess(text):
     text = text.split()
     word_counter = len(text)
 
-    return(sentence_counter, letter_counter, word_counter)
+    return(sentenceCounter, letterCounter, wordCounter)
 
 flag = True
 
