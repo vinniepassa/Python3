@@ -1,17 +1,17 @@
 import math
-print("Calcolatore radici di equazioni secondo grado")
-a = int(input("Primo coefficiente: "))
-b = int(input("Secondo coefficiente: "))
-c = int(input("Terzo coefficiente: "))
+print("Calculator of quadratic equation roots")
+a = int(input("First coefficient: "))
+b = int(input("Second coefficient: "))
+c = int(input("Third coefficient: "))
 if a == 0:
-         print("L'equazione non è di secondo grado")
+         print("The equation is not quadratic")
 else:
          delta = ((b*b)-4*a*c)
          if delta < 0:
-             print("L'equazione non ammette soluzioni reali")
+             print("The equation does not admit solutions in the set of real numbers")
          else:
              x1 = (-b-(math.sqrt(delta)))/2*a
-             print("La prima radice è:", x1)
+             print("First root:", x1)
              x2 = (-b+(math.sqrt(delta)))/2*a
-             print("La seconda radice è:", x2)
+             print("Second root:", x2)
     
