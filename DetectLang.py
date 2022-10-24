@@ -83,7 +83,7 @@ def main():
     print("************")
     time.sleep(2)
     os.system('cls')
-    print("Can detect the following languages: English (EN), French (FR), German (DE), Spanish (ES), Portuguese (PT), Italian (IT), Turkish (TK), Swedish (SW), Polish (PL), Dutch (NL), Danish (DK), Icelandic (IS), Finnish (FI), Czech (CZ), Norwegian (NO), Estonian (ET), Irish (GA), Galician (GL)")
+    print("Discriminates the following languages: English (EN), French (FR), German (DE), Spanish (ES), Portuguese (PT), Italian (IT), Turkish (TK), Swedish (SW), Polish (PL), Dutch (NL), Danish (DK), Icelandic (IS), Finnish (FI), Czech (CZ), Norwegian (NO), Estonian (ET), Irish (GA), Galician (GL)")
     time.sleep(5)
 
     while flag:
@@ -99,10 +99,10 @@ def main():
                 s = input("Enter string: ")
                 print()
                 if(len(s) <= 50):
-                    print("[For more reliable results, the string should be longer]")
+                    print("[To increase the reliability of the results, please use a longer string!]")
                     time.sleep(2)
                     print()
-                print("Save detection to file? [Y][N]\n")
+                print("Save results to file? [Y][N]\n")
                 save = input()
                 save = save.upper()
                 if(save == "Y"):
@@ -117,7 +117,7 @@ def main():
                     else:
                         detectLang(s)
             elif(ans == 2):
-                filename = input("Enter the file's name: ")
+                filename = input("Enter file name: ")
                 if(not os.path.exists(filename)):
                     print("File", filename, "does not exist in working directory!\n")
                     time.sleep(2)
@@ -125,11 +125,11 @@ def main():
                     __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
                     with open(os.path.join(__location__, filename)) as file:
                         text = file.read()
-                        print("Save detection to file? [Y][N]\n")
+                        print("Save results to file? [Y][N]\n")
                         save = input()
                         save = save.upper()
                         if(save == "Y"):
-                            filename = input("File name?\n")
+                            filename = input("Enter file name: ")
                             file = open(filename, 'w')
                             file.write(detectLang(text))
                             file.close()
